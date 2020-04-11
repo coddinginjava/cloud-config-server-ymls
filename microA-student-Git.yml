@@ -1,0 +1,37 @@
+server:
+  port: 0 #8521
+  servlet:
+    context-path: /student
+
+#putting  common properties on github reading from cloud config server
+#https://github.com/coddinginjava/cloud-config-server-ymls/tree/master
+#so removing the tree mircoservices & eureka
+
+#mircoservices:
+#  endpoints:
+#    college: http://microB-college/college/
+#    address: http://microC-address/address/
+#    student: http://microA-student/student/
+
+logging:
+  level:
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+
+
+spring:
+  application:
+    name: microA-student
+#  zipkin:
+#    enabled: false
+
+sample:
+  text: local-yml
+
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+##  instance:
+##    hostname: ${spring.application.name}
