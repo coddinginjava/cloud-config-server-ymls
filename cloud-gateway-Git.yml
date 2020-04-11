@@ -1,0 +1,66 @@
+spring:
+  application:
+    name: cloud-gateway
+#  zipkin:
+#    enabled: false
+  cloud:
+    gateway:
+      routes:
+        - id: microA-student
+          uri: lb://microA-student
+          predicates:
+            - Path=/student/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: microA-student
+                fallbackuri: forward:/studentFallBack
+
+
+        - id: microB-college
+          uri: lb://microB-college
+          predicates:
+            - Path=/college/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: microB-college
+                fallbackuri: forward:/collegeFallBack
+
+
+        - id: microC-address
+          uri: lb://microC-address
+          predicates:
+            - Path=/address/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: microC-address
+                fallbackuri: forward:/addressFallBack
+
+#putting  common properties on github reading from cloud config server
+#https://github.com/coddinginjava/cloud-config-server-ymls/tree/master
+#so removing the tree  eureka
+
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+##  instance:
+##    hostname: ${spring.application.name}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
