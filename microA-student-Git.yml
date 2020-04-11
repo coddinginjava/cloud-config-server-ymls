@@ -2,6 +2,12 @@ server:
   port: 0 #8521
   servlet:
     context-path: /student
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
 
 #putting  common properties on github reading from cloud config server
 #https://github.com/coddinginjava/cloud-config-server-ymls/tree/master
