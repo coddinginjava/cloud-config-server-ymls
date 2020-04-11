@@ -28,6 +28,13 @@ spring:
 
 sample:
   text: Git-yml
+  
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
 
 #eureka:
 #  client:
