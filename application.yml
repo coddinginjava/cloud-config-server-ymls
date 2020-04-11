@@ -15,4 +15,4 @@ eureka:
 #    hostname: ${spring.application.name}
 
 common:
-  text: v1-common-text
+  text: v2-new-common-text
