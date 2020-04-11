@@ -1,6 +1,11 @@
 spring:
   application:
     name: cloud-gateway
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 #  zipkin:
 #    enabled: false
   cloud:

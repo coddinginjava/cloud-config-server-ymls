@@ -2,11 +2,6 @@ server:
   port: 0 #8520
   servlet:
     context-path: /college
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
 
 
 #putting  common properties on github reading from cloud config server
@@ -23,6 +18,11 @@ server:
 spring:
   application:
     name: microB-college
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 #  zipkin:
 #    enabled: false
 
