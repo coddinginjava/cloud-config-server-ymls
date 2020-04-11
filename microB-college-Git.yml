@@ -21,7 +21,7 @@ spring:
 #    enabled: false
 
 sample:
-  text: local-yml
+  text: Git-yml
 
 #eureka:
 #  client:
